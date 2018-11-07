@@ -1,26 +1,56 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import gql from "graphql-tag";
+import { Query } from "react-apollo";
+
+const GET_FARE_ESTIMATES = gql`
+  query FareEstimates(
+    $origin: String!
+    $destination: String!
+    $useCase: String!
+  ) {
+    fareEstimates(
+      origin: $origin
+      destination: $destination
+      useCase: $useCase
+    ) {
+      id
+      origin
+      destination
+      baseCents
+      laborMinuteCents
+      product {
+        id
+        name
+        slug
+        description
+        crewSize
+      }
+    }
+  }
+`;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Query
+        query={GET_FARE_ESTIMATES}
+        variables={{
+          origin: "Cost Plus World Market",
+          destination: "487 Bryant St. San Francisco, CA",
+          useCase: "Store Delivery"
+        }}
+      >
+        {({ data: { fareEstimates }, loading, error }) => {
+          if (loading || !fareEstimates) {
+            return <div>Loading ...</div>;
+          } else if (error) {
+            return <div>{JSON.stringify(error)}</div>;
+          }
+
+          return <p>{JSON.stringify(fareEstimates)}</p>;
+        }}
+      </Query>
     );
   }
 }
