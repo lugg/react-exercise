@@ -9,6 +9,7 @@ This is a vanilla React Application created using `yarn create react-app`.
 You'll be building a simple estimates page that our customers would use on lugg.com to better understand what they can expect to pay before requesting a Lugg. You'll find the `.sketch` file in the `/design` folder within this repo detailing the three steps of the estimate process. If you have any questions about how things should function please ask.
 
 - How you decide to do CSS with react is entirely your call. I've left all the css files from `create-react-app` intact but if CSS in JS is more your flavor then feel free to use that or any alternative.
+- Please do not hard code the estimates. You are expected to fetch the estimate data using Apollo.
 
 ### Setup
 
