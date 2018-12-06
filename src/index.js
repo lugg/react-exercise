@@ -1,16 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-
-import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
-
 import { SchemaLink } from "apollo-link-schema";
 import { makeExecutableSchema } from "graphql-tools";
-
+import React from "react";
+import { ApolloProvider } from "react-apollo";
+import ReactDOM from "react-dom";
 import App from "./App";
 import { schema, resolvers } from "./apollo/schema";
+import GlobalStyles from "./components/GlobalStyles";
 
 async function render() {
   const cache = new InMemoryCache();
@@ -30,6 +27,7 @@ async function render() {
 
   ReactDOM.render(
     <ApolloProvider client={client}>
+      <GlobalStyles />
       <App />
     </ApolloProvider>,
     document.getElementById("root")
