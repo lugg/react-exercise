@@ -29,6 +29,7 @@ const Tagline = styled.h2`
   color: #677bc5;
   font-weight: 400;
   text-transform: lowercase;
+  white-space: nowrap;
 `;
 
 export default () => (
