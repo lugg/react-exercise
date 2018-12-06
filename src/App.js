@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import Menu from "./components/Menu";
 
 class App extends Component {
   render() {
-    return <h1>your code here</h1>;
+    return <Menu />;
   }
 }
 
