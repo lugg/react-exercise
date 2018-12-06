@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import LogoSvg from "./logo.svg";
+import LogoSvg from "../../assets/logo.svg";
 
 const Division = styled.div`
   padding: 0 15px;
@@ -27,6 +27,7 @@ const Logo = styled.img`
 
 const Tagline = styled.h2`
   color: #677bc5;
+  font-size: 18px;
   font-weight: 400;
   text-transform: lowercase;
   white-space: nowrap;
