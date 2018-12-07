@@ -8,7 +8,14 @@ const Division = styled.div`
   display: flex;
   font-weight: 600;
   margin-right: 5px;
+  transition: background-color 0.3s ease;
   width: 100%;
+
+  ${props => props.onClick && `cursor: pointer;`}
+
+  :hover {
+    background-color: #f0f0f8;
+  }
 
   :last-of-type {
     margin-right: 0;
@@ -25,10 +32,10 @@ const ImageWrapper = styled.div`
   align-items: flex-end;
   display: flex;
   margin: 0 auto 15px auto;
-  min-height: 60px;
+  min-height: 55px;
 `;
 
-const Label = styled.div`
+const ItemLabel = styled.div`
   padding: 0 35px;
 `;
 
@@ -43,7 +50,7 @@ class GroupedSelectionItem extends React.Component {
               <img src={icon} alt="" />
             </ImageWrapper>
           )}
-          <Label>{label}</Label>
+          <ItemLabel>{label}</ItemLabel>
         </Content>
       </Division>
     );
