@@ -18,8 +18,8 @@ const LuggersImage = styled.img`
 `;
 
 const VehicleImage = styled.img`
-  ${props => !props.big && `padding-top: 10px;`}
-  height: 49px;
+  ${props => !props.big && `padding-top: 5px;`}
+  height: 44px;
   width: auto;
 `;
 

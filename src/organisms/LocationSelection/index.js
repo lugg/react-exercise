@@ -5,6 +5,7 @@ import styled from "styled-components";
 import LocationInput from "./LocationInput";
 import IdleCopy from "./IdleCopy";
 import FareEstimateItem from "./FareEstimateItem";
+import Button from "../../components/Button";
 import Card from "../../components/Card";
 
 const Content = styled.div`
@@ -21,17 +22,6 @@ const CategoryCard = styled(Card)`
 
 const Label = styled.div`
   font-weight: 600;
-`;
-
-const Button = styled.button`
-  background: none;
-  color: #505fb4;
-  border: none;
-  padding: 0;
-  font: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
 `;
 
 export default ({

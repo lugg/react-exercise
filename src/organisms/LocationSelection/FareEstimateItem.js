@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "../../components/Button";
 import TransportGraphics from "../../components/TransportGraphics";
 
 const Division = styled.div`
@@ -73,6 +74,7 @@ export default ({
         </EstimateText>
       </Content>
       <TransportGraphics crewSize={crewSize} slug={slug} />
+      <Button styled>Book</Button>
     </Division>
   );
 };
