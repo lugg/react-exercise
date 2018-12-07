@@ -23,41 +23,41 @@ export default ({ onSelection }) => (
       <GroupedSelectionItem
         icon={StoreDeliverySvg}
         label="Store Delivery"
-        onClick={onSelection`Store Delivery`}
+        onClick={onSelection("Store Delivery")}
       />
       <GroupedSelectionItem
         icon={SmallMoveSvg}
         label="Small Move"
-        onClick={onSelection`Small Move`}
+        onClick={onSelection("Small Move")}
       />
       <GroupedSelectionItem
         icon={StorageMoveSvg}
         label="Storage Move"
-        onClick={onSelection`Storage Move`}
+        onClick={onSelection("Storage Move")}
       />
     </GroupedSelectionRow>
     <GroupedSelectionRow>
       <GroupedSelectionItem
         icon={JunkRemovalSvg}
         label="Junk Removal"
-        onClick={onSelection`Junk Removal`}
+        onClick={onSelection("Junk Removal")}
       />
       <GroupedSelectionItem
         icon={CraigslistPickupSvg}
         label="Craigslist Pickup"
-        onClick={onSelection`Craigslist Pickup`}
+        onClick={onSelection("Craigslist Pickup")}
       />
       <GroupedSelectionItem
         icon={DonationPickupSvg}
         label="Donation Pickup"
-        onClick={onSelection`Donation Pickup`}
+        onClick={onSelection("Donation Pickup")}
       />
     </GroupedSelectionRow>
     <GroupedSelectionRow height="120px">
       <GroupedSelectionItem
         icon={OtherSvg}
         label="Other"
-        onClick={onSelection`Other`}
+        onClick={onSelection("Other")}
       />
     </GroupedSelectionRow>
   </StyledGroupedSelection>

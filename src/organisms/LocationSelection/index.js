@@ -44,14 +44,14 @@ export default ({
         handleOriginChange={handleOriginChange}
         origin={origin}
       />
-      {!origin || !destination ? (
+      {!category || !destination || !origin ? (
         <IdleCopy />
       ) : (
         <Query
           query={GET_FARE_ESTIMATES}
           variables={{
-            origin,
             destination,
+            origin,
             useCase: category
           }}
         >
@@ -64,10 +64,10 @@ export default ({
 
             return fareEstimates.map(estimate => (
               <FareEstimateItem
-                key={estimate.id}
                 baseCents={estimate.baseCents}
                 crewSize={estimate.product.crewSize}
                 description={estimate.product.description}
+                key={estimate.id}
                 laborMinuteCents={estimate.laborMinuteCents}
                 name={estimate.product.name}
                 slug={estimate.product.slug}
