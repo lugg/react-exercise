@@ -20,7 +20,7 @@ class App extends Component {
       category: "",
       destination: "",
       origin: "",
-      step: "Location Selection"
+      step: "Category Selection"
     };
   }
 
