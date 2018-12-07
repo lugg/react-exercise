@@ -5,7 +5,7 @@ export default styled.div`
   border-radius: 5px;
   background-color: #fff;
   margin-bottom: 7px;
-  padding: 15px;
+  padding: 10px;
 
   :last-of-type {
     margin-bottom: 0;

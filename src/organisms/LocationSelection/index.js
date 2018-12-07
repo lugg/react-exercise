@@ -1,8 +1,11 @@
 import React from "react";
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
 import styled from "styled-components";
 import LocationInput from "./LocationInput";
+import IdleCopy from "./IdleCopy";
+import FareEstimateItem from "./FareEstimateItem";
 import Card from "../../components/Card";
-import AllOurLuggersSvg from "../../assets/all_our_luggers.svg";
 
 const Content = styled.div`
   max-width: 472px;
@@ -13,6 +16,7 @@ const CategoryCard = styled(Card)`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  padding: 15px;
 `;
 
 const Label = styled.div`
@@ -28,12 +32,6 @@ const Button = styled.button`
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-`;
-
-const Copy = styled.p`
-  color: #848793;
-  font-size: 14px;
-  text-align: center;
 `;
 
 export default ({
@@ -56,20 +54,57 @@ export default ({
         handleOriginChange={handleOriginChange}
         origin={origin}
       />
-      <br />
       {!origin || !destination ? (
-        <div>
-          <br />
-          <br />
-          <img src={AllOurLuggersSvg} alt="" />
-          <Copy>
-            All our Luggers are equipped with the necessary tools such as
-            straps, blankets and wrap to protect your items.
-          </Copy>
-        </div>
+        <IdleCopy />
       ) : (
-        <div>list list list</div>
+        <Query
+          query={GET_FARE_ESTIMATES}
+          variables={{
+            origin,
+            destination,
+            useCase: category
+          }}
+        >
+          {({ data: { fareEstimates }, loading, error }) => {
+            if (loading || !fareEstimates) {
+              return <div>Loading...</div>;
+            } else if (error) {
+              return <div>{JSON.stringify(error)}</div>;
+            }
+
+            return fareEstimates.map(estimate => (
+              <FareEstimateItem>{JSON.stringify(estimate)}</FareEstimateItem>
+            ));
+          }}
+        </Query>
       )}
     </Card>
   </Content>
 );
+
+const GET_FARE_ESTIMATES = gql`
+  query FareEstimates(
+    $origin: String!
+    $destination: String!
+    $useCase: String!
+  ) {
+    fareEstimates(
+      origin: $origin
+      destination: $destination
+      useCase: $useCase
+    ) {
+      id
+      origin
+      destination
+      baseCents
+      laborMinuteCents
+      product {
+        id
+        name
+        slug
+        description
+        crewSize
+      }
+    }
+  }
+`;

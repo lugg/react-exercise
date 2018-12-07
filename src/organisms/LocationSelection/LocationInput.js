@@ -6,6 +6,8 @@ import ShyLabelInput from "../../components/ShyLabelInput";
 
 const Division = styled.div`
   text-align: initial;
+  padding: 5px 0;
+  margin-bottom: 15px;
 `;
 
 const Image = styled.img`
