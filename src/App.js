@@ -17,13 +17,15 @@ class App extends Component {
     super();
 
     this.state = {
-      category: "Henlo",
+      category: "",
+      destination: "",
+      origin: "",
       step: "Location Selection"
     };
   }
 
   render() {
-    const { category, step } = this.state;
+    const { category, destination, origin, step } = this.state;
 
     return (
       <div>
@@ -42,6 +44,14 @@ class App extends Component {
         {step === "Location Selection" && (
           <LocationSelection
             category={category}
+            destination={destination}
+            origin={origin}
+            handleDestinationChange={event => {
+              this.setState({ destination: event.target.value });
+            }}
+            handleOriginChange={event => {
+              this.setState({ origin: event.target.value });
+            }}
             onChangeCategory={() =>
               this.setState({ category: "", step: "Category Selection" })
             }
