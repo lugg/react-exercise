@@ -4,6 +4,7 @@ import styled from "styled-components";
 const FormField = styled.div`
   color: #848793;
   font-size: 14px;
+  width: 100%;
 `;
 
 const Input = styled.input`
