@@ -6,14 +6,10 @@ import LocationSelection from "./organisms/LocationSelection";
 
 const Header = styled.h3`
   color: #1c1f34;
-  display: inline-block;
   font-size: 56px;
   margin-bottom: 68px;
-  white-space: nowrap;
-`;
-
-const Content = styled.div`
   text-align: center;
+  white-space: nowrap;
 `;
 
 class App extends Component {
@@ -22,7 +18,7 @@ class App extends Component {
 
     this.state = {
       category: "Henlo",
-      step: "Category Selection"
+      step: "Location Selection"
     };
   }
 
@@ -32,27 +28,25 @@ class App extends Component {
     return (
       <div>
         <Menu />
-        <Content>
-          <Header>Get an estimate</Header>
-          {step === "Category Selection" && (
-            <CategorySelection
-              onSelection={category => () => {
-                this.setState({
-                  category,
-                  step: "Location Selection"
-                });
-              }}
-            />
-          )}
-          {step === "Location Selection" && (
-            <LocationSelection
-              category={category}
-              onChangeCategory={() =>
-                this.setState({ category: "", step: "Category Selection" })
-              }
-            />
-          )}
-        </Content>
+        <Header>Get an estimate</Header>
+        {step === "Category Selection" && (
+          <CategorySelection
+            onSelection={category => () => {
+              this.setState({
+                category,
+                step: "Location Selection"
+              });
+            }}
+          />
+        )}
+        {step === "Location Selection" && (
+          <LocationSelection
+            category={category}
+            onChangeCategory={() =>
+              this.setState({ category: "", step: "Category Selection" })
+            }
+          />
+        )}
       </div>
     );
   }

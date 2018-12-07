@@ -41,6 +41,7 @@ const ImageWrapper = styled.div`
 
 const ItemLabel = styled.div`
   padding: 0 35px;
+  text-align: center;
 `;
 
 class GroupedSelectionItem extends React.Component {
