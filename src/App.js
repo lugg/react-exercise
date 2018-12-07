@@ -44,6 +44,14 @@ class App extends Component {
               }}
             />
           )}
+          {step === "Location Selection" && (
+            <LocationSelection
+              category={category}
+              onChangeCategory={() =>
+                this.setState({ category: "", step: "Category Selection" })
+              }
+            />
+          )}
         </Content>
       </div>
     );

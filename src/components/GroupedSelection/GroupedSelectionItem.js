@@ -8,14 +8,18 @@ const Division = styled.div`
   display: flex;
   font-weight: 600;
   margin-right: 5px;
-  transition: background-color 0.3s ease;
   width: 100%;
 
-  ${props => props.onClick && `cursor: pointer;`}
+  ${props =>
+    props.onClick &&
+    `
+      cursor: pointer;
+      transition: background-color 0.3s ease;
 
-  :hover {
-    background-color: #f0f0f8;
-  }
+      :hover {
+        background-color: #f0f0f8;
+      }
+    `}
 
   :last-of-type {
     margin-right: 0;
