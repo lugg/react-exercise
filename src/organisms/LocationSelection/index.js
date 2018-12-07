@@ -33,7 +33,6 @@ const Button = styled.button`
 const Copy = styled.p`
   color: #848793;
   font-size: 14px;
-  padding: 15px;
   text-align: center;
 `;
 
@@ -57,14 +56,19 @@ export default ({
         handleOriginChange={handleOriginChange}
         origin={origin}
       />
-      {(!origin || !destination) && (
-        <Copy>
+      <br />
+      {!origin || !destination ? (
+        <div>
+          <br />
+          <br />
           <img src={AllOurLuggersSvg} alt="" />
-          <br />
-          <br />
-          All our Luggers are equipped with the necessary tools such as straps,
-          blankets and wrap to protect your items.
-        </Copy>
+          <Copy>
+            All our Luggers are equipped with the necessary tools such as
+            straps, blankets and wrap to protect your items.
+          </Copy>
+        </div>
+      ) : (
+        <div>list list list</div>
       )}
     </Card>
   </Content>

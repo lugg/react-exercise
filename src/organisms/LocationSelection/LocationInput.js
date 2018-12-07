@@ -15,7 +15,6 @@ const Image = styled.img`
 const IconInput = styled.div`
   align-items: center;
   display: flex;
-  height: 47px;
 `;
 
 const Divider = styled.div`
