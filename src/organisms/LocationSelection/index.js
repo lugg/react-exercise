@@ -73,7 +73,15 @@ export default ({
             }
 
             return fareEstimates.map(estimate => (
-              <FareEstimateItem>{JSON.stringify(estimate)}</FareEstimateItem>
+              <FareEstimateItem
+                key={estimate.id}
+                baseCents={estimate.baseCents}
+                crewSize={estimate.product.crewSize}
+                description={estimate.product.description}
+                laborMinuteCents={estimate.laborMinuteCents}
+                name={estimate.product.name}
+                slug={estimate.product.slug}
+              />
             ));
           }}
         </Query>
@@ -94,16 +102,13 @@ const GET_FARE_ESTIMATES = gql`
       useCase: $useCase
     ) {
       id
-      origin
-      destination
       baseCents
       laborMinuteCents
       product {
-        id
+        crewSize
+        description
         name
         slug
-        description
-        crewSize
       }
     }
   }
