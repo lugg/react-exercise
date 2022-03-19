@@ -21,6 +21,7 @@ $ yarn start
 ```
 
 ### Fetching fare estimate data
+
 I've setup apollo with some mock data so you can query a graphql backend without needing a server. You can fetch estimates as follows:
 
 ```
