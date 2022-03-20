@@ -1,5 +1,6 @@
 import { graphql } from "msw";
 import slugify from "slugify";
+import { v4 as uuidv4 } from "uuid";
 
 export type TProduct = {
   id: string;
@@ -37,7 +38,7 @@ function mockQuote(
 ): TQuote {
   return {
     ...attrs,
-    id: "123",
+    id: uuidv4(),
     baseCents: randomInt(5000, 10000),
     laborMinuteCents: randomInt(100, 200),
   };
@@ -47,7 +48,7 @@ function mockProduct(
   attrs: Pick<TProduct, "name" | "description" | "crewSize">
 ): TProduct {
   return {
-    id: "123",
+    id: uuidv4(),
     slug: slugify(attrs.name, { lower: true }),
     ...attrs,
   };
