@@ -1,5 +1,4 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import Quotes from "./components/quotes";
 
 function App() {
   const client = new ApolloClient({
@@ -9,8 +8,8 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      {/* YOUR CODE HERE */}
-      <Quotes />
+      {/* YOUR CODE GOES HERE */}
+      <h3>Hello world!</h3>
     </ApolloProvider>
   );
 }
