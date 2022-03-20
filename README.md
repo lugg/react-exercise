@@ -22,7 +22,7 @@ $ npm run dev
 
 ### Fetching data
 
-I've setup [Apollo](https://www.apollographql.com/docs/react/) with some mock data so you can query a graphql backend without needing a server. You can get estimates as follows:
+I've setup [Apollo](https://www.apollographql.com/docs/react/) with some mock data so you can query a [GraphQL](https://graphql.org/) backend without needing a server. You can get estimates as follows:
 
 ```js
 import { gql, useQuery } from "@apollo/client";
